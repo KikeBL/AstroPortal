@@ -1,0 +1,64 @@
+---
+import {
+    Astronav,
+    MenuItems,
+    MenuIcon
+} from "astro-navbar";
+
+import astroLogo from "../assets/astro.svg";
+import home from "../assets/home.svg";
+import about from "../assets/about.svg";
+import catalog from "../assets/catalog.svg";
+import contact from "../assets/contact.svg";
+import cart from "../assets/cart.svg";
+---
+
+<header
+    class="lg:flex justify-between px-10 py-5 gap-5 mx-auto border border-b border-b-orange-300"
+>
+    <Astronav closeOnClick>
+        <div class="flex w-full lg:w-auto justify-between">
+            <a href="https://astro.build">
+                <img src={astroLogo.src} width="115" height="48" alt="Logo" />
+            </a>
+            <div class="block lg:hidden">
+                <div class="flex">
+                    <a href="#" class="flex">
+                        <img src={cart.src} class="pr-1" alt="Carrito" />
+                    </a>
+                    <MenuIcon class="w-8 h-8 ml-2 text-gray-800" />
+                </div>
+            </div>
+        </div>
+        <MenuItems class="hidden lg:flex">
+            <ul class="flex flex-col lg:flex-row lg:gap-5">
+                <li class="py-2 text-xl text-orange-400">
+                    <a href="#" class="flex">
+                        <img src={home.src} class="pr-1" alt="Homepage" />
+                        Inicio</a>
+                </li>
+                <li class="py-2 text-xl">
+                    <a href="#" class="flex">
+                        <img src={about.src} class="pr-1" alt="Sobre nosotros" />
+                        Sobre nosotros</a>
+                </li>
+
+                <li class="py-2 text-xl">
+                    <a href="#" class="flex">
+                        <img src={catalog.src} class="pr-1" alt="Cursos" />
+                        Cursos</a>
+                </li>
+                <li class="py-2 text-xl">
+                    <a href="#" class="flex">
+                        <img src={contact.src} class="pr-1" alt="Contacto" />
+                        Contacto</a>
+                </li>
+                <li class="py-2 text-xl hidden lg:block">
+                    <a href="#" class="flex">
+                        <img src={cart.src} class="pr-1" alt="Carrito de la compra" />
+                    </a>
+                </li>
+            </ul>
+        </MenuItems>
+    </Astronav>
+</header>

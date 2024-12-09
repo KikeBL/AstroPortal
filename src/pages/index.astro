@@ -1,0 +1,11 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { getCollection } from 'astro:content';
+
+const courses = await getCollection('courses');
+console.log(courses);
+---
+
+<Layout>
+	
+</Layout>
