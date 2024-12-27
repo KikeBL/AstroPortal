@@ -2,19 +2,27 @@
 import Header from "../components/Header.astro";
 import "@fontsource-variable/onest";
 import "@fontsource-variable/inter";
+
+import { ClientRouter } from "astro:transitions";
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang="es">
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="generator" content={Astro.generator} />
 		<title>Rocío Pérez Vázquez Escuela</title>
+		<link
+			href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined"
+			rel="stylesheet"
+		/>
+		<ClientRouter />
 	</head>
 	<body>
-		<Header />
+		<div class="w-full border border-b border-b-orange-300 z-50 md:sticky md:top-0 bg-white md:h-24">
+			<Header />
+		</div>
 		<slot />
 		<footer>
 			<p>&copy; {new Date().getFullYear()} Astro Basics</p>
