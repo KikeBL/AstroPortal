@@ -1,9 +1,5 @@
 ---
-import {
-    Astronav,
-    MenuItems,
-    MenuIcon
-} from "astro-navbar";
+import { Astronav, MenuItems, MenuIcon } from "astro-navbar";
 
 import astroLogo from "../assets/astro.svg";
 import home from "../assets/home.svg";
@@ -13,9 +9,7 @@ import contact from "../assets/contact.svg";
 import cart from "../assets/cart.svg";
 ---
 
-<header
-    class="lg:flex justify-between px-10 py-5 gap-5 mx-auto border border-b border-b-orange-300"
->
+<header class="lg:flex justify-between px-10 py-5 gap-5 mx-auto container">
     <Astronav closeOnClick>
         <div class="flex w-full lg:w-auto justify-between">
             <a href="https://astro.build">
@@ -24,7 +18,9 @@ import cart from "../assets/cart.svg";
             <div class="block lg:hidden">
                 <div class="flex">
                     <a href="#" class="flex">
-                        <img src={cart.src} class="pr-1" alt="Carrito" />
+                        <span class="material-symbols-outlined">
+                            shopping_cart
+                        </span>
                     </a>
                     <MenuIcon class="w-8 h-8 ml-2 text-gray-800" />
                 </div>
@@ -32,30 +28,56 @@ import cart from "../assets/cart.svg";
         </div>
         <MenuItems class="hidden lg:flex">
             <ul class="flex flex-col lg:flex-row lg:gap-5">
-                <li class="py-2 text-xl text-orange-400">
-                    <a href="#" class="flex">
-                        <img src={home.src} class="pr-1" alt="Homepage" />
-                        Inicio</a>
+                <li class="py-2 text-xl lg:text-lg hover:text-orange-300">
+                    <a href="#" class="flex align-middle items-center">
+                        <span class="material-symbols-outlined mr-1">
+                            home
+                        </span>
+                        Inicio</a
+                    >
                 </li>
-                <li class="py-2 text-xl">
-                    <a href="#" class="flex">
-                        <img src={about.src} class="pr-1" alt="Sobre nosotros" />
-                        Sobre nosotros</a>
+                <li class="py-2 text-xl lg:text-lg">
+                    <a
+                        href="#"
+                        class="flex align-middle items-center hover:text-orange-300"
+                    >
+                        <span class="material-symbols-outlined mr-1">
+                            digital_wellbeing
+                        </span>
+                        Sobre nosotros</a
+                    >
                 </li>
 
-                <li class="py-2 text-xl">
-                    <a href="#" class="flex">
-                        <img src={catalog.src} class="pr-1" alt="Cursos" />
-                        Cursos</a>
+                <li class="py-2 text-xl lg:text-lg">
+                    <a
+                        href="#"
+                        class="flex align-middle items-center hover:text-orange-300"
+                    >
+                        <span class="material-symbols-outlined mr-1">
+                            menu_book
+                        </span>
+                        Cursos</a
+                    >
                 </li>
-                <li class="py-2 text-xl">
-                    <a href="#" class="flex">
-                        <img src={contact.src} class="pr-1" alt="Contacto" />
-                        Contacto</a>
+                <li class="py-2 text-xl lg:text-lg">
+                    <a
+                        href="#"
+                        class="flex align-middle items-center hover:text-orange-300"
+                    >
+                        <span class="material-symbols-outlined mr-1">
+                            mail
+                        </span>
+                        Contacto</a
+                    >
                 </li>
-                <li class="py-2 text-xl hidden lg:block">
-                    <a href="#" class="flex">
-                        <img src={cart.src} class="pr-1" alt="Carrito de la compra" />
+                <li class="py-2 text-xl lg:text-lg hidden lg:block">
+                    <a
+                        href="#"
+                        class="flex align-middle items-center hover:text-orange-300"
+                    >
+                        <span class="material-symbols-outlined mr-1">
+                            shopping_cart
+                        </span>
                     </a>
                 </li>
             </ul>
