@@ -1,0 +1,23 @@
+---
+const { page, category, title } = Astro.props;
+---
+
+<div class="flex breadcrumb mx-auto py-4 h-16 w-full">
+    <div class="mx-auto container align-middle">
+        <a href="/" class="align-middle hover:text-blue-400">Inicio</a>
+        <span class="material-symbols-outlined mx-1 align-middle">
+            chevron_right
+        </span>
+        <a href="/cursos" class="align-middle hover:text-blue-400">{page}</a>
+        <span class="material-symbols-outlined mx-1 align-middle">
+            chevron_right
+        </span>
+        <a href=`/category/${category}` class="align-middle hover:text-blue-400"
+            >{category}</a
+        >
+        <span class="material-symbols-outlined mx-1 align-middle">
+            chevron_right
+        </span>
+        <span>{title}</span>
+    </div>
+</div>

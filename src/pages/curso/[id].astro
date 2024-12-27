@@ -1,0 +1,153 @@
+---
+import type { GetStaticPaths } from "astro";
+import { getCollection, render } from "astro:content";
+import Layout from "../../layouts/Layout.astro";
+import { coerce } from "astro:schema";
+import Breadcrumb from "../../components/Breadcrumb.astro";
+
+export async function getStaticPaths() {
+  const courses = await getCollection("courses");
+
+  return courses.map((course) => ({
+    params: { id: course.slug },
+    props: { course },
+  }));
+}
+
+const { course } = Astro.props;
+const { slug, data } = course;
+const {
+  title,
+  description,
+  img,
+  teacher,
+  banner,
+  price,
+  duration,
+  category,
+  teacher_img,
+  teacher_img_thumbnail,
+  table_of_contents,
+} = data;
+
+const teacherImage = teacher_img_thumbnail
+  ? teacher_img_thumbnail
+  : teacher_img;
+
+const { Content } = await render(course);
+let index = 0;
+---
+
+<Layout title="{`${title} | Escuela de trabajo social`}">
+  <div
+    class="flex w-ful bg-cover bg-fixed bg-center"
+    style=`background-image:url('/${banner}');`
+  >
+    <div class="banner w-full h-96 bg-gray-200 bg-opacity-50">
+      <div class="w-full h-full">
+        <div
+          class="container mx-auto flex flex-col md:flex-row md:gap-16 pt-14"
+        >
+          <div class="flex-col">
+            <h1
+              class="text-5xl text-gray-800 font-inter font-thin leading-snug"
+            >
+              {title}
+            </h1>
+          </div>
+          <div class="flex flex-col text-center">
+            <div class="w-56 h-55 mx-center">
+              <img
+                src={`/teachers/${teacherImage}`}
+                alt=""
+                class="rounded-full"
+              />
+            </div>
+            <span class="text-xl mt-4 font-light">{teacher}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container mx-auto flex flex-col">
+    <Breadcrumb page="Cursos" category={category} title={title} />
+    <div class="flex gap-12">
+      <main class="prose w-7/12 max-w-full">
+        <Content />
+      </main>
+      <aside class="w-5/12">
+        <img
+          transition:name={`img-${slug}`}
+          src={`/${img}`}
+          alt={title}
+          class="w-full rounded-t-lg"
+        />
+        <div class="border border-purple-500 rounded-b-lg">
+          <div class="p-4">
+            {
+              table_of_contents.map((item, index) => {
+                let itemIndex = 0; // Índice para numeración si es numerado
+                return (
+                  <div key={index}>
+                    {/* Título del elemento */}
+                    <h2 class="text-2xl font-thin mb-3 text-purple-500">
+                      {item.title}
+                    </h2>
+                    <div class="pb-3">
+                      {/* Iteración sobre los subjects */}
+                      {item.content.subjects.map((subitem, j) => {
+                        if (item.is_numerated) {
+                          itemIndex++;
+                        }
+                        return (
+                          <div key={j}>
+                            {/* Si es numerado, muestra el índice */}
+                            {item.is_numerated ? (
+                              <div class="flex mt-1">
+                                <span class="text-lg font-thin w-14 text-purple-500">
+                                  {itemIndex}.{j + 1}
+                                </span>
+                                <span class="text-lg font-thin">
+                                  {subitem.subject}
+                                </span>
+                              </div>
+                            ) : (
+                              <div class="flex gap-4 mt-1">
+                                <span class="text-lg font-thin">
+                                  {subitem.subject}
+                                </span>
+                              </div>
+                            )}
+
+                            {/* Si el subitem tiene subsubjects, iterarlos */}
+                            {subitem.subsubjects &&
+                              subitem.subsubjects.map((subsubitem, k) => (
+                                <div class="flex mt-2" key={k}>
+                                  <span class="text-sm font-thin w-14 pl-4 text-purple-500">
+                                    {itemIndex}.{j + 1}.{k + 1}
+                                  </span>
+                                  <span class="text-sm font-thin">
+                                    {subsubitem}
+                                  </span>
+                                </div>
+                              ))}
+                          </div>
+                        );
+                      })}
+                    </div>
+                    {/* Mostrar información del examen, si está disponible */}
+                    {item.test && (
+                      <div class="mb-4">
+                        <span>Examen: {item.test}</span>
+                      </div>
+                    )}
+                  </div>
+                );
+              })
+            }
+          </div>
+        </div>
+      </aside>
+    </div>
+  </div>
+</Layout>

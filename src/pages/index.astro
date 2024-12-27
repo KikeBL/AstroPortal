@@ -1,11 +1,88 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import { getCollection } from 'astro:content';
+import Layout from "../layouts/Layout.astro";
+import { getCollection } from "astro:content";
 
-const courses = await getCollection('courses');
-console.log(courses);
+const courses = await getCollection("courses");
 ---
 
-<Layout>
-	
+<Layout title="Escuela de trabajo social">
+	<main>
+		<h1 class="text-center text-7xl font-bold mt-8">
+			<span class="block">Entorno Social</span>
+		</h1>
+	</main>
+	<section aria-label="Cursos populares" class="container mx-auto">
+		<h2 class="text-4xl font-bold mt-8">Cursos populares</h2>
+		<div class="mx-auto">
+			<div
+				class="grid grid-cols-1 md:grid-cols-3 md:gap-6 mx-auto w-full"
+			>
+				{
+					courses.map((course) => {
+						const { slug, data } = course;
+						const {
+							title,
+							description,
+							img,
+							teacher,
+							price,
+							duration,
+						} = data;
+						console.log(data);
+						return (
+							<article>
+								<div class="overflow-hidden mx-auto max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+									<a href={`/curso/${slug}`}>
+										<img
+											transition:name={`img-${slug}`}
+											class="rounded-t-lg object-cover transition-transform transform hover:scale-105"
+											src={`/${img}`}
+											alt={title}
+										/>
+									</a>
+									<div class="p-5">
+										<a href={`/curso/${slug}`}>
+											<h2 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+												{title}
+											</h2>
+										</a>
+										<p class="mb-3 font-normal text-gray-700 dark:text-gray-400">
+											{description}
+										</p>
+										<div class="flex pb-4">
+											<div class="">
+												<span class="material-symbols-outlined align-middle text-orange-400">
+													woman
+												</span>
+												<span class="align-middle">
+													{teacher}
+												</span>
+											</div>
+											<div class="flex-1 text-end">
+												<span class="material-symbols-outlined align-middle">
+													schedule
+												</span>
+												<span class="align-middle">
+													{duration}h
+												</span>
+											</div>
+										</div>
+										<a
+											href={`/curso/${slug}`}
+											class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-orange-400 rounded-lg hover:bg-orange-500 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+										>
+											Read more
+											<span class="ml-2 material-symbols-outlined">
+												arrow_right_alt
+											</span>
+										</a>
+									</div>
+								</div>
+							</article>
+						);
+					})
+				}
+			</div>
+		</div>
+	</section>
 </Layout>
