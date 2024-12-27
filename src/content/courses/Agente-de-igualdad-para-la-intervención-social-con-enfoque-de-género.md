@@ -1,8 +1,8 @@
 ---
 title: Agente de igualdad para la intervención social con enfoque de género
 teacher: Rocío Pérez Vázquez
-categories: [ Igualdad de género, Promociones, Trabajo Social ]
-img: agente-de-igualdad-para-la-intervencion-social-con-enfoque-de-genero.jpg
+tags: [ Igualdad de género, Promociones, Trabajo Social ]
+img: agente-de-igualdad-para-la-intervencion-social-con-enfoque-de-genero.webp
 description: El curso de agentes es una formación que busca dotar a profesionales de la acción social de conocimientos, y competencias para una intervención profesional con una perspectiva de género consciente
 price: 200.00
 lections: 17
@@ -10,6 +10,167 @@ tests: 7
 duration: 110
 language: Español
 level: Intermedio
+category: Igualdad de Género
+teacher_img: rocio-perez-vazquez.webp
+teacher_img_thumbnail: rocio-perez-vazquez-thumbnail.webp
+banner: agente-de-igualdad-para-la-intervencion-social-con-enfoque-de-genero-banner.webp
+table_of_contents: [
+    {
+        title: Introducción,
+        content: 
+        {
+            subjects: [
+                {
+                    subject: ¿Qué vas a aprender?,
+                },
+                {
+                    subject: Plan de acogida,
+                },
+                {
+                    subject: Club de lectura,
+                }
+            ]
+        },
+        is_numerated: false
+    },
+    {
+        title: Empecemos por el principio. Construcción social de la desigualdad de género,
+        content:
+        {
+            subjects: [
+                {
+                    subject: Naciones fundamentales,
+                },
+                {
+                    subject: El puzzle de la desigualdad,
+                },
+                {
+                    subject: Actividad (voluntaria),
+                }
+            ]
+        },
+        test: 10 preguntas,
+        is_numerated: true
+    },
+    {
+        title: Genealogía feminista,
+        content:
+        {
+            subjects: [
+                {
+                    subject: Feminismo. Historia y oleadas,
+                },
+                {
+                    subject: Teoría del género,
+                },
+                {
+                    subject: Actividad (voluntaria),
+                }
+            ]
+        },
+        test: 10 preguntas,
+        is_numerated: true
+    },
+    {
+        title: Intervención social con enfoque de género,
+        content: 
+        {
+            subjects: [
+                {
+                    subject: Herramientas de trabajo desde la perspectiva de género,
+                },
+                {
+                    subject: El trabajo de sensibilización y prevención,
+                },
+                {
+                    subject: Actividad (voluntaria),
+                }
+            ]
+        },
+        test: 15 preguntas,
+        is_numerated: true
+    },
+    {
+        title: Marco jurídico en materia de igualdad,
+        content: 
+        {
+            subjects: [
+                {
+                    subject: El derecho antidiscriminatorio de género,
+                },
+                {
+                    subject: Políticas públicas y organismos para la igualdad,
+                },
+                {
+                    subject: Actividad (voluntaria),
+                }
+            ]
+        },
+        test: 15 preguntas,
+        is_numerated: true
+    },
+    {
+        title: Procesos de cambio social,
+        content: 
+        {
+            subjects: [
+                {
+                    subject: Masculinidad en positivo,
+                },
+                {
+                    subject: Distribución social de los cuidados,
+                },
+                {
+                    subject: Educación y cambio social,
+                },
+                {
+                    subject: Nuevas estrategias contra la igualdad,
+                },
+                {
+                    subject: Actividad (voluntaria),
+                }
+            ]
+        },
+        test: 15 preguntas,
+        is_numerated: true
+    },
+    {
+        title: Violencias de género,
+        content:  
+        {
+            subjects: [
+                {
+                    subject: La violencia de género como problema social. Análisis estructural,
+                },
+                {
+                    subject: Actividad (voluntaria),
+                },
+                {
+                    subject: Tipología y manifestaciones de la violencia de género,
+                },
+                {
+                    subject: Mitos y falsas creencias,
+                },
+                {
+                    subject: Todo esto también es violencia machista. Una mirada más amplia,
+                },
+                {
+                    subject: El papel de los profesionales del sector social,
+                    subsubjects: [
+                        Detección de casos en violencia de género y buenas prácticas en la intervención,
+                        Valoración del riesgo,
+                        Actores de riesgo y protección asociados a la violencia de género,
+                        Interseccionalidad y violencia de género,
+                        El trabajo en red en la intervención,
+                        Derechos de las mujeres víctimas de la violencia de género,
+                    ]
+                },
+            ]
+        },
+        test: 15 preguntas,
+        is_numerated: true
+    }
+]
 ---
 
 El curso de agentes es una formación que busca dotar a profesionales de la acción social de conocimientos, y competencias para una intervención profesional con una perspectiva de género consciente.
